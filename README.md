@@ -4,6 +4,8 @@ Welcome! Although not strictly Big Data, we'll be learning few tools that make l
 ## Working in the terminal
 The engineers day to day happens in the terminal, may look scary but is hella fun!
 
+We'll use
+
 
 
 ## Working with text data
