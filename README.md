@@ -57,3 +57,8 @@ And where's the bandersnatch?
 ```
 curl -sN https://www.gutenberg.org/files/12/12-0.txt | tr -d '[:punct:]' | tr -d '’' | tr '[:space:]' '[\n*]' | sort | uniq -c | sort -nr
 ```
+
+## Working with streaming data
+### Getting some data
+You should see something like this
+![Demo Streaming Data](img/curl_stream.gif)
