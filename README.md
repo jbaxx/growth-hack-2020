@@ -1,12 +1,14 @@
 ## Growth Hack 2020 - Big Data
-Welcome! As now we know, not strictly Big Data, but we'll learn some tools that make Data Engineers' life easier (and everyone working with data).
+### Building Data Pipelines
+Welcome! 
+Let's build some Pipelines using the same tools that inspired Big Data systems and that make Data Engineers life easier every day.
 
 ## Working in the terminal
-The engineers' day-to-day happens in the terminal, may look scary but is hella fun!
+May look scary but is hella fun!
 
 ### Opening a terminal
-In case you have `WSL`, `Git Bash` or `term` or `iterm` if working on a Mac, you can use those.
-Otherwise let's open an online one
+In case you have `WSL`, `Git Bash` or `term` / `iterm` if working on a Mac, you can use those.   
+Otherwise let's open an online one using this link:  
 #### [https://repl.it/languages/bash](https://repl.it/languages/bash)
 
 ### Getting to know the terminal
@@ -18,21 +20,21 @@ Type a command and hit <kbd>Enter</kbd> to execute it.
 
 ##### Tip: you can copy and the paste the commands in the online terminal using <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>v</kbd>
 
-For example, this one to show all the content of the current folder
+This one to show all the content of the current folder
 ```
 ls -als
 ```
-Or just this one to print a greeting
+This one to print a message
 ```
 echo Hola!
 ```
 
 ## Unix Pipes
-Unix pipes are are mechanisms to transform and communicate data between processes, similar to what Data Engineers do in the Cloud systems.
-The pipe is set using the `|` symbol.
+Unix pipes are are mechanisms to transform and communicate data between processes, similar to what Data Engineers do in the Cloud systems.  
+The pipe is called using the `|` symbol.
 
 ### Your first pipe
-Let's print a message like we did before, but before printing pipe it to another process
+Let's print a message like we did before, and then pipe it to another process
 1. Echo the message
 2. Pass it to a pipe `|`
 3. Let the pipe send it to `tr` which will transform it into uppercase
@@ -86,10 +88,10 @@ Swap the number and word spot using our friend `awk`, then sort.
 curl -sN https://www.gutenberg.org/files/12/12-0.txt | tr -d '[:punct:]' | tr -d '’' | tr '[:space:]' '[\n*]' | sort | uniq -c | awk '{print $2" "$1}'
 ```
 
-It's looking better, now let's sort it by frequency
+It's looking better, now let's sort it by frequency and get the top 20 only
 If we ommit `-nr` it's sorted lexicographically
 ```
-curl -sN https://www.gutenberg.org/files/12/12-0.txt | tr -d '[:punct:]' | tr -d '’' | tr '[:space:]' '[\n*]' | sort | uniq -c | sort -nr
+curl -sN https://www.gutenberg.org/files/12/12-0.txt | tr -d '[:punct:]' | tr -d '’' | tr '[:space:]' '[\n*]' | sort | uniq -c | sort -nr | head -n 20
 ```
 
 And where's the bandersnatch?
