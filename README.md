@@ -1,14 +1,14 @@
-## Growth Hack 2020 - Big Data
-### Building Data Pipelines
-Welcome! 
-Let's build some Pipelines using the same tools that inspired Big Data systems and that make Data Engineers life easier every day.
+# Growth Hack 2020 - Big Data
+## Building Data Pipelines in 5 mins
+Perform an ETL: Extract, Transform, Load
 
-## Working in the terminal
-May look scary but is hella fun!
+## Objectives
+1. Build a pipeline to extract the word frequency from an unstructured dataset
+1. Experience using the command line
+1. Fetch unstructured data from the web
 
 ### Opening a terminal
-In case you have `WSL`, `Git Bash` or `term` / `iterm` if working on a Mac, you can use those.   
-Otherwise let's open an online one using this link:  
+Open an online shell using this link:  
 #### [https://repl.it/languages/bash](https://repl.it/languages/bash)
 
 ### Getting to know the terminal
@@ -18,7 +18,8 @@ You will see a prompt like this
 ```
 Type a command and hit <kbd>Enter</kbd> to execute it.
 
-##### Tip: you can copy and the paste the commands in the online terminal using <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>v</kbd>
+
+### Copy and Paste: you can copy and then paste the commands in the terminal using <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>v</kbd>
 
 This one to show all the content of the current folder
 ```
