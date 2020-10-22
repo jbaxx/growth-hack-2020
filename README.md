@@ -103,7 +103,5 @@ cat alice.txt | tr -d '[:punct:]’‘' | tr '[:space:]' '[\n*]' | sort | uniq -
 
 ### Congratulations! You've created a word frequency counter application for any text corpus
 
-## Working with real-time data
-### Getting some data
-You should see something like this
+## Next: Working with real-time data
 ![Demo Streaming Data](img/curl_stream.gif)
