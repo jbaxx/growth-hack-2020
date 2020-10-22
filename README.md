@@ -1,10 +1,10 @@
 # Growth Hack 2020 - Big Data
-## Building Data Pipelines in 5 mins
-Perform an ETL: Extract, Transform, Load
+## Building ETL Data Pipelines in 5 mins
+Perform an ETL: Extract, Transform, Load/Presentation
 
 ## Objectives
 1. Build a pipeline to extract the word frequency from an unstructured dataset
-1. Experience using the command line
+1. Get experience using the command line
 1. Fetch unstructured data from the web
 
 ### Opening a terminal
