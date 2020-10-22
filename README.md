@@ -44,59 +44,67 @@ echo Hola! | tr a-z A-Z
 Congratulations! You're ready to get some serious action!
 
 ## Working with Text data
-### Getting some data
-Execute the command below to bring a copy of *Alice Through the Looking-Glass by Lewis Carroll*
+### Step 1. Getting some data
+Let's get a copy of *Alice Through the Looking-Glass by Lewis Carroll*
 ```
-curl -sN https://www.gutenberg.org/files/12/12-0.txt
+curl -sN https://www.gutenberg.org/files/12/12-0.txt > alice.txt && cat alice.txt
 ```
 
-Woa, that was actually too fast.
-Let's pipe it through the counter `wc` to see how many lines we have in total
+### Step 2. Counting lines
+Woa, too fast.
+Print it (using `cat`) and pipe it to `wc` (the line counter) to see how many lines we have in total
 ```
-curl -sN https://www.gutenberg.org/files/12/12-0.txt | wc -l
+cat alice.txt | wc -l
 ```
 
 ### Start the tweaking - Understanding word frequency
 Let's calculate how many times each word appears in the text, for that we'll need to do some processing before
 
-First, remove the punctuation by using our friend `tr`
+### Step 3. Remove punctuation
+Delete punctuation by using the transformer: `tr -d`
 ```
-curl -sN https://www.gutenberg.org/files/12/12-0.txt | tr -d '[:punct:]' | tr -d '’'
-```
-
-I like where we're getting.   
-Now is time to count the word frequency, we have a tool in our toolbox that allows to count lines, now just if each word was in a single line...  
-Let's replace all spaces with new line jumps :D
-```
-curl -sN https://www.gutenberg.org/files/12/12-0.txt | tr -d '[:punct:]' | tr -d '’' | tr '[:space:]' '[\n*]'
+cat alice.txt | tr -d '[:punct:]’‘'
 ```
 
-To make it more interest let's sort it
+### Step 4. Separating words in lines   
+To get the word frequency
+1. Put each word in a line by replacing a space (`[:space:]`) with a line jump (`[\n*]`)
+2. Count the number of lines
 ```
-curl -sN https://www.gutenberg.org/files/12/12-0.txt | tr -d '[:punct:]' | tr -d '’' | tr '[:space:]' '[\n*]' | sort
+cat alice.txt | tr -d '[:punct:]’‘' | tr '[:space:]' '[\n*]'
 ```
 
+### Step 5. Sorting words
+Sort it
+```
+cat alice.txt | tr -d '[:punct:]’‘' | tr '[:space:]' '[\n*]' | sort
+```
+
+### Step 6. Count the sorted words
 Now let's count it
 ```
-curl -sN https://www.gutenberg.org/files/12/12-0.txt | tr -d '[:punct:]' | tr -d '’' | tr '[:space:]' '[\n*]' | sort | uniq -c
+cat alice.txt | tr -d '[:punct:]’‘' | tr '[:space:]' '[\n*]' | sort | uniq -c
 ```
 
+### Step 7. Doing a better sort to better count
 Not what we expected, every day problems.   
 Let's fix it with some syntactic sugar.  
 Swap the number and word spot using our friend `awk`, then sort.  
 ```
-curl -sN https://www.gutenberg.org/files/12/12-0.txt | tr -d '[:punct:]' | tr -d '’' | tr '[:space:]' '[\n*]' | sort | uniq -c | awk '{print $2" "$1}'
+cat alice.txt | tr -d '[:punct:]’‘' | tr '[:space:]' '[\n*]' | sort | uniq -c | awk '{print $2" "$1}'
 ```
 
+### Step 8. Getting the top 20 words
 It's looking better, now let's sort it by frequency and get the top 20 only
 If we ommit `-nr` it's sorted lexicographically
 ```
-curl -sN https://www.gutenberg.org/files/12/12-0.txt | tr -d '[:punct:]' | tr -d '’' | tr '[:space:]' '[\n*]' | sort | uniq -c | sort -nr | head -n 20
+cat alice.txt | tr -d '[:punct:]’‘' | tr '[:space:]' '[\n*]' | sort | uniq -c | sort -nr | head -n 20
 ```
 
+### Step 9. Finding a word
 And where's the bandersnatch?
 ```
-curl -sN https://www.gutenberg.org/files/12/12-0.txt | tr -d '[:punct:]' | tr -d '’' | tr '[:space:]' '[\n*]' | sort | uniq -c | sort -nr
+cat alice.txt | tr -d '[:punct:]’‘' | tr '[:space:]' '[\n*]' | sort | uniq -c | sort -nr
 ```
 
 ## Working with streaming data
