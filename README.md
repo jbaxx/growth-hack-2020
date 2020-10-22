@@ -89,17 +89,8 @@ Now let's count it
 cat alice.txt | tr -d '[:punct:]’‘' | tr '[:space:]' '[\n*]' | sort | uniq -c
 ```
 
-### Step 7. Doing a better sort to better count
-Not what we expected, every day problems.   
-Let's fix it with some syntactic sugar.  
-Swap the number and word spot using our friend `awk`, then sort.  
-```
-cat alice.txt | tr -d '[:punct:]’‘' | tr '[:space:]' '[\n*]' | sort | uniq -c | awk '{print $2" "$1}'
-```
-
 ### Step 8. Getting the top 20 words
 It's looking better, now let's sort it by frequency and get the top 20 only
-If we ommit `-nr` it's sorted lexicographically
 ```
 cat alice.txt | tr -d '[:punct:]’‘' | tr '[:space:]' '[\n*]' | sort | uniq -c | sort -nr | head -n 20
 ```
@@ -107,10 +98,12 @@ cat alice.txt | tr -d '[:punct:]’‘' | tr '[:space:]' '[\n*]' | sort | uniq -
 ### Step 9. Finding a word
 And where's the bandersnatch?
 ```
-cat alice.txt | tr -d '[:punct:]’‘' | tr '[:space:]' '[\n*]' | sort | uniq -c | sort -nr
+cat alice.txt | tr -d '[:punct:]’‘' | tr '[:space:]' '[\n*]' | sort | uniq -c | sort -nr | grep -i bandersnatch
 ```
 
-## Working with streaming data
+### Congratulations! You've created a word frequency counter application for any text corpus
+
+## Working with real-time data
 ### Getting some data
 You should see something like this
 ![Demo Streaming Data](img/curl_stream.gif)
