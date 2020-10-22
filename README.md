@@ -78,7 +78,7 @@ cat alice.txt | tr -d '[:punct:]’‘' | tr '[:space:]' '[\n*]'
 ```
 
 ### Step 5. Sorting words
-Sort it
+To count each word frequency, we need them together
 ```
 cat alice.txt | tr -d '[:punct:]’‘' | tr '[:space:]' '[\n*]' | sort
 ```
