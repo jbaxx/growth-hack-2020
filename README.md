@@ -23,11 +23,9 @@ You will see a prompt like this
 ```
 >
 ```
-Type a command and hit <kbd>Enter</kbd> to execute it.
+### Copy and Paste tip: you can copy and then paste the commands in the terminal using <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>v</kbd>
 
-### Copy and Paste: you can copy and then paste the commands in the terminal using <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>v</kbd>
-
-This one to show all the content of the current folder
+Execute this command to show all the contents of the current folder
 ```
 ls -als
 ```
@@ -37,14 +35,13 @@ echo Hola!
 ```
 
 ## Part II. Unix Pipes
-Unix pipes are are mechanisms to transform and communicate data between processes, similar to what Data Engineers do in the Cloud systems.  
+Unix pipes are are mechanisms to transform and pass data between processes, similar to what Data Engineers do in the Cloud systems.  
 The pipe is called using the `|` symbol.
 
 ### Your first pipe
-Let's print a message like we did before, and then pipe it to another process
-1. Echo the message
-2. Pass it to a pipe `|`
-3. Let the pipe send it to `tr` which will transform it into uppercase
+Let's print a message like we did before, and then pipe (send) it to another process
+1. Print a message
+2. With a pipe `|` send it to `tr`, which will transform lowercase letters it into uppercase
 ```
 echo Hola! | tr a-z A-Z
 ```
@@ -52,13 +49,12 @@ Congratulations! You're ready to get some serious action!
 
 ## Part III. Creating the pipeline
 ### Step 1. Getting some data
-Let's get a copy of *Alice Through the Looking-Glass by Lewis Carroll*
+Let's get a copy of *Alice Through the Looking-Glass by Lewis Carroll* and save it to a file named `alice.txt`
 ```
 curl -sN https://www.gutenberg.org/files/12/12-0.txt > alice.txt && cat alice.txt
 ```
 
 ### Step 2. Counting lines
-Woa, too fast.
 Print it (using `cat`) and pipe it to `wc` (the line counter) to see how many lines we have in total
 ```
 cat alice.txt | wc -l
