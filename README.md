@@ -4,10 +4,17 @@ Perform an ETL: Extract, Transform, Load/Presentation
 
 ## Objectives
 1. Build a pipeline to extract the word frequency from an unstructured dataset
-1. Get experience using the command line
-1. Fetch unstructured data from the web
+1. Simulate the implementation decisions Data Engineers face on large scale systems in a short exercise
 
-### Opening a terminal
+## Table of Contents
+### Part I. Opening a terminal
+Get an online discardable workspace
+### Part II. Unix pipes
+Get a brief into on using Unix pipes, the equivalent for Big Data processing
+### Part III. Creating the pipeline
+Build the actual ETL for the word count aplication
+
+## Part I. Opening a terminal
 Open an online shell using this link:  
 #### [https://repl.it/languages/bash](https://repl.it/languages/bash)
 
@@ -17,7 +24,6 @@ You will see a prompt like this
 >
 ```
 Type a command and hit <kbd>Enter</kbd> to execute it.
-
 
 ### Copy and Paste: you can copy and then paste the commands in the terminal using <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>v</kbd>
 
@@ -30,7 +36,7 @@ This one to print a message
 echo Hola!
 ```
 
-## Unix Pipes
+## Part II. Unix Pipes
 Unix pipes are are mechanisms to transform and communicate data between processes, similar to what Data Engineers do in the Cloud systems.  
 The pipe is called using the `|` symbol.
 
@@ -44,7 +50,7 @@ echo Hola! | tr a-z A-Z
 ```
 Congratulations! You're ready to get some serious action!
 
-## Working with Text data
+## Part III. Creating the pipeline
 ### Step 1. Getting some data
 Let's get a copy of *Alice Through the Looking-Glass by Lewis Carroll*
 ```
